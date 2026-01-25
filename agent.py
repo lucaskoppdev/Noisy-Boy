@@ -17,19 +17,22 @@ client = Groq(api_key=agent_api_key)
 
 
 
-#Funcao inicial pra testar se a API ta funcionando 
+#Funcao inicial pra testar se a API ta funcionando
+
+
 
 def chat_with_ai():
+    pergunta_user = input('Digite a sua pergunta ->:')
     chat_completion = client.chat.completions.create(
         messages = [
             {
                 "role": "system",
-                "content": "Comporte-se como uma IA simpatica, seu nome e Lucas"
+                "content": "Voce e um assistente de IA legal e simpatico"
             },
 
             {
                 "role": "user",
-                "content": "Boa noite, qual o seu nome?"
+                "content": pergunta_user,
             }
 
         ],
@@ -39,8 +42,6 @@ def chat_with_ai():
         #temperatura do modelo (0.7, valor medio padrao) - depois passar isso aqui como variavel
         temperature = 0.7, #nao faco ideia do porque, mas precisa dessa virgula
     )
+
     return chat_completion.choices[0].message.content
 
-a = chat_with_ai()
-
-print(a)
