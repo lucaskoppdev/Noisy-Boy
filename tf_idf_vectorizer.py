@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
-
+import joblib
 
 
 def check_if_stopwords_exist():
@@ -53,7 +53,12 @@ X = vectorizer.fit_transform(faq_perguntas)
 
 feature_names = vectorizer.get_feature_names_out()
 
-
+#Persistindo o vectorizer ja treinado, a matriz de perguntas/respostas e afins dentro de um arquivo .pkl
+joblib.dump({
+    "vectorizer":vectorizer,
+    "matrix": X,
+    "respostas": faq_respostas
+},"faq_pipeline.pkl")
 
 print(feature_names)
 print(X.shape)
