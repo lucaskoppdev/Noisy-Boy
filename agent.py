@@ -1,38 +1,38 @@
-#Fazer Conexao com a API do GROQ
-
 from groq import Groq
 from dotenv import load_dotenv
 import os
-
+from user_vectorizer_handler import main_function
 
 
 load_dotenv() #Carrega o arquivo .env
 
-#Chave da API do agente, contida no arquivo .env
+
+
 agent_api_key = os.getenv("GROQ_API_KEY")
 
 
-#faz a conexao com o client
+
 client = Groq(api_key=agent_api_key)
 
 
 
-#Funcao inicial pra testar se a API ta funcionando
+
+with open("ai_prompt.txt", "r") as file:
+    prompt = file.read()
 
 
 
-def chat_with_ai():
-    pergunta_user = input('Digite a sua pergunta ->:')
+def chat_with_ai(ai_prompt, answer_to_refine):
     chat_completion = client.chat.completions.create(
         messages = [
             {
                 "role": "system",
-                "content": "Voce e um assistente de IA legal e simpatico"
+                "content": ai_prompt,
             },
 
             {
                 "role": "user",
-                "content": pergunta_user,
+                "content": answer_to_refine,
             }
 
         ],
@@ -40,8 +40,20 @@ def chat_with_ai():
         model = "llama-3.1-8b-instant",
 
         #temperatura do modelo (0.7, valor medio padrao) - depois passar isso aqui como variavel
-        temperature = 0.7, #nao faco ideia do porque, mas precisa dessa virgula
+        temperature = 0.7, 
     )
 
     return chat_completion.choices[0].message.content
 
+
+#Loop Principal
+
+while True:
+    answer_output = main_function()
+
+    output = chat_with_ai(prompt, answer_output)
+
+    if output == 0:
+        break
+    
+    print(f"RESPOSTA REFINADA PELA IA-> {output}")

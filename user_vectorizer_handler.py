@@ -10,10 +10,6 @@ X = data["matrix"]
 respostas = data["respostas"]
 
 
-def get_user_question():
-    return input("Digite a sua pergunta -> ").strip()
-
-
 
 def answers_user_question(
         user_question,
@@ -35,20 +31,17 @@ def answers_user_question(
     if best_score >= 0.8:
         return faq_answers[best_index]
     else:
-        print(best_score)
-        print(best_index)
-        return None
+        return "não foi encontrada uma resposta satisfatória para sua pergunta, tente falar de outro jeito pra eu te ajudar !"
 
 
 
-#loop de teste gambiarra
-print("==>Digite sair para encerrar<==")
-while True:
-    user_input = get_user_question()
+def main_function():
+    print("==>Digite sair para encerrar<==")
+    user_input = input("Digite a sua pergunta ->")
 
     if user_input in ['sair', 'exit', 'encerrar']:
         print("Encerrado")
-        break
+        return 0
 
     resposta = answers_user_question(
         user_question=user_input,
@@ -56,6 +49,5 @@ while True:
         matrix_X=X,
         faq_answers=respostas
     )
-
-    print("Resposta: ", resposta)
-
+    
+    return resposta
