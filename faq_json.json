@@ -1,0 +1,34 @@
+[
+  {
+    "pergunta": "Como faço para criar uma conta?",
+    "resposta": "Clique no botão 'Cadastrar' ou 'Sign Up' na página inicial, preencha seu e-mail, crie uma senha e confirme seu e-mail através do link enviado."
+  },
+  {
+    "pergunta": "Posso alterar meu plano depois de assinar?",
+    "resposta": "Sim, você pode alterar ou cancelar seu plano a qualquer momento na área 'Minha Conta' → 'Assinatura'."
+  },
+  {
+    "pergunta": "Quanto tempo demora para o pagamento ser confirmado?",
+    "resposta": "Pagamentos com cartão de crédito são confirmados em poucos segundos. Boleto e Pix geralmente levam até 1 hora útil."
+  },
+  {
+    "pergunta": "Perdi o acesso à minha conta, o que faço?",
+    "resposta": "Na tela de login clique em 'Esqueci minha senha'. Você receberá um e-mail com instruções para redefinir sua senha."
+  },
+  {
+    "pergunta": "Vocês têm aplicativo para celular?",
+    "resposta": "Sim! Disponível para Android e iOS. Busque por '[Nome do App]' na Play Store ou App Store."
+  },
+  {
+    "pergunta": "Posso usar a conta em mais de um dispositivo ao mesmo tempo?",
+    "resposta": "Sim, nossa conta permite uso simultâneo em até 3 dispositivos diferentes."
+  },
+  {
+    "pergunta": "Como solicito reembolso?",
+    "resposta": "Acesse 'Minha Conta' → 'Assinatura' → 'Solicitar reembolso' e preencha o formulário. Processamos em até 5 dias úteis."
+  },
+  {
+    "pergunta": "O conteúdo fica disponível offline?",
+    "resposta": "Sim, você pode baixar conteúdos selecionados para assistir offline pelo aplicativo móvel."
+  }
+]

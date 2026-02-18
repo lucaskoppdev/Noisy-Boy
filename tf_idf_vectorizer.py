@@ -26,9 +26,9 @@ with open('faq_json.json', 'r', encoding = 'utf-8') as corpus:
 
 
 #list compaharasion para passar texto para a funcao do tf-idf
-faq_perguntas = [item["Pergunta"].strip('"') for item in file]
+faq_perguntas = [item["pergunta"].strip('"') for item in file]
 
-faq_respostas = [item["Resposta"] for item in file]
+faq_respostas = [item["resposta"] for item in file]
 
 
 check_if_stopwords_exist()
