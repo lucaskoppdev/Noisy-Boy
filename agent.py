@@ -1,7 +1,6 @@
 from groq import Groq
 from dotenv import load_dotenv
 import os
-from user_vectorizer_handler import main_function
 
 
 load_dotenv() #Carrega o arquivo .env
@@ -22,12 +21,12 @@ with open("ai_prompt.txt", "r") as file:
 
 
 
-def chat_with_ai(ai_prompt, answer_to_refine):
+def agent_refinery(answer_to_refine):
     chat_completion = client.chat.completions.create(
         messages = [
             {
                 "role": "system",
-                "content": ai_prompt,
+                "content": prompt,
             },
 
             {
@@ -45,15 +44,3 @@ def chat_with_ai(ai_prompt, answer_to_refine):
 
     return chat_completion.choices[0].message.content
 
-
-#Loop Principal
-
-while True:
-    answer_output = main_function()
-
-    output = chat_with_ai(prompt, answer_output)
-
-    if output == 0:
-        break
-    
-    print(f"RESPOSTA REFINADA PELA IA-> {output}")

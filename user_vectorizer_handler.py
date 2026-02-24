@@ -3,6 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import joblib
 
 
+
 #carregar o "payload" vindo do tf_idf_vectorizer
 data =  joblib.load("faq_pipeline.pkl")
 vectorizer = data["vectorizer"]
@@ -11,12 +12,13 @@ respostas = data["respostas"]
 
 
 
-def answers_user_question(
+def find_best_faq_answer(
         user_question,
         vectorizer,
         matrix_X,
         faq_answers
 ):
+
 
     vectorized_question = vectorizer.transform([user_question.strip()])
 
@@ -35,19 +37,12 @@ def answers_user_question(
 
 
 
-def main_function():
-    print("==>Digite sair para encerrar<==")
-    user_input = input("Digite a sua pergunta ->")
-
-    if user_input in ['sair', 'exit', 'encerrar']:
-        print("Encerrado")
-        return 0
-
-    resposta = answers_user_question(
+def find_best_answer_for_user_input(user_input):
+    answer = find_best_faq_answer(
         user_question=user_input,
         vectorizer=vectorizer,
         matrix_X=X,
         faq_answers=respostas
     )
     
-    return resposta
+    return answer

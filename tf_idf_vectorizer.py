@@ -25,7 +25,7 @@ with open('faq_json.json', 'r', encoding = 'utf-8') as corpus:
 
 
 
-#list compaharasion para passar texto para a funcao do tf-idf
+#list comprehesion para passar texto para a funcao do tf-idf
 faq_perguntas = [item["pergunta"].strip('"') for item in file]
 
 faq_respostas = [item["resposta"] for item in file]
@@ -53,12 +53,16 @@ X = vectorizer.fit_transform(faq_perguntas)
 
 feature_names = vectorizer.get_feature_names_out()
 
+
+
 #Persistindo o vectorizer ja treinado, a matriz de perguntas/respostas e afins dentro de um arquivo .pkl
 joblib.dump({
     "vectorizer":vectorizer,
     "matrix": X,
     "respostas": faq_respostas
 },"faq_pipeline.pkl")
+
+
 
 print(feature_names)
 print(X.shape)

@@ -30,5 +30,17 @@
   {
     "pergunta": "O conteúdo fica disponível offline?",
     "resposta": "Sim, você pode baixar conteúdos selecionados para assistir offline pelo aplicativo móvel."
+  },
+  {
+    "pergunta": "O que sobrou para o beta?",
+    "resposta": "Nao sobrou nada pro betinha!"
+  },
+  {
+    "pergunta": "Quem e o responsavel pelo desenvolvimento desse agente?",
+    "resposta": "O responsavel pelo desenvolvimento, deploy e monitoramento desse assistente e o lucaskoppdev"
+  },
+  {
+    "pergunta": "Como posso entrar em contato com seu desenlvovedor ?",
+    "resposta": "Voce pode entrar em contato atraves do Linkedin, www.linkedin.com/in/lucas-renan-kopp-de-frança-762061293"
   }
 ]
